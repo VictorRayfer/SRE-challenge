@@ -8,6 +8,7 @@ We can make sure that our application is deployed correctly by checking the foll
 
 - Jenkins Log Oputput
 - Application is Running on Kubernetes 1/1.
+- Liveness and Readiness probe configured on Deployment.
 - Application log on Kubernetes (kubectl logs pod_name -n namespace>)
 - Check if we have EFK.
 
