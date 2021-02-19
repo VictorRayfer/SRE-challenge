@@ -11,13 +11,13 @@ deployment:
 
 
   containerPort: 8080
-  resources: {}
-    #limits:
-    #  cpu: 100m
-    #  memory: 240Mi
-    #requests:
-    #  cpu: 100m
-    #  memory: 120Mi
+  resources: 
+    limits:
+      cpu: 100m
+      memory: 240Mi
+    requests:
+      cpu: 100m
+      memory: 120Mi
 
   livenessProbe:
     initialDelaySeconds: 5
