@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "helm.name" . }}
+  labels:
+    app: {{ include "helm.name" . }}
+spec:
+  replicas: {{ .Values.deployment.replicas | default 1 }}
+  selector:
+    matchLabels:
+      app: {{ include "helm.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "helm.name" . }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.deployment.image }}:{{ .Values.deployment.tag }}"
+        resources:
+          {{- toYaml .Values.resources | nindent 12 }}
+        ports:
+        - containerPort: {{ .Values.deployment.containerPort }}
+
+

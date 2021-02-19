@@ -1,0 +1,17 @@
+{{- $serviceName := include "helm.name" . -}}
+{{- $servicePort  := .Values.service.ports.port -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+  name: {{ include "helm.name" . }}
+spec:
+  rules:
+  - http:
+      paths:
+      {{- range $.Values.ingress.paths }}
+      - path: {{ . }}
+        backend:
+          serviceName: {{ $serviceName }}
+          servicePort: {{ $servicePort }}
+      {{- end }}

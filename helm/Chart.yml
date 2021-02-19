@@ -1,0 +1,4 @@
+apiVersion: v2
+name: sre-challenge
+version: 0.0.1
+description: Chart to deploy application on Kubernetes.
